@@ -3,6 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.0",
+    "@inrupt/solid-client": "^2.0.1",
+    "@inrupt/solid-client-authn-browser": "^2.1.0",
+    "@ldo/ldo": "^0.0.1-alpha.23",
+    "@mui/icons-material": "^5.15.14",
+    "@mui/material": "^5.15.14",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -10,9 +17,14 @@
     "@types/node": "^16.18.91",
     "@types/react": "^18.2.67",
     "@types/react-dom": "^18.2.22",
+    "@ulb-darmstadt/shacl-form": "^1.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
+    "react-router-dom": "^6.22.3",
     "react-scripts": "5.0.1",
+    "react-slick": "^0.30.2",
+    "slick-carousel": "^1.8.1",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
@@ -20,7 +32,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build:tutorial": "node scripts/schal2shex.js && node scripts/ttl2json.js src/.shapes/tutorial.ttl",
+    "build:ldo": "ldo build --input src/.shapes --output src/.ldo"
   },
   "eslintConfig": {
     "extends": [
@@ -39,5 +53,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@ldo/cli": "^0.0.1-alpha.23",
+    "@ldo/solid-react": "^0.0.1-alpha.23",
+    "@types/jsonld": "^1.5.13",
+    "@types/n3": "^1.16.4",
+    "@types/react-helmet": "^6.1.11",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/react-slick": "^0.23.13",
+    "@types/shexj": "^2.1.7",
+    "@types/uuid": "^9.0.8",
+    "n3": "^1.17.3",
+    "uuid": "^9.0.1"
   }
 }
