@@ -50,7 +50,7 @@ export class MaterialTheme extends Theme {
     createImageEditor(label: string, value: Term | null, required: boolean, template: ShaclPropertyTemplate): HTMLElement {
         const editor = new MdOutlinedTextField()
         editor.label = label
-        editor.supportingText = template.description ?.value || ''
+        editor.supportingText = template.description?.value || ''
         editor.type = 'text'
         editor.setAttribute('type', 'file')
         editor.setAttribute('accept', 'image/*')
@@ -64,7 +64,7 @@ export class MaterialTheme extends Theme {
     createTextEditor(label: string, value: Term | null, required: boolean, template: ShaclPropertyTemplate): HTMLElement {
         const editor = new MdOutlinedTextField()
         editor.label = label
-        editor.supportingText = template.description ?.value || ''
+        editor.supportingText = template.description?.value || ''
         if (template.singleLine === false) {
             editor.type = 'textarea'
             editor.rows = 5
@@ -83,7 +83,7 @@ export class MaterialTheme extends Theme {
         const editor = new MdOutlinedTextField()
         editor.type = 'number'
         editor.label = label
-        editor.supportingText = template.description ?.value || ''
+        editor.supportingText = template.description?.value || ''
         const min = template.minInclusive !== undefined ? template.minInclusive : template.minExclusive !== undefined ? template.minExclusive + 1 : undefined
         const max = template.maxInclusive !== undefined ? template.maxInclusive : template.maxExclusive !== undefined ? template.maxExclusive - 1 : undefined
         if (min !== undefined) {
