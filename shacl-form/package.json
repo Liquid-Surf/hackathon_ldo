@@ -1,0 +1,63 @@
+{
+    "name": "@ulb-darmstadt/shacl-form",
+    "version": "1.4.0",
+    "description": "SHACL form generator",
+    "main": "dist/form-default.js",
+    "module": "dist/form-default.js",
+    "types": "dist/form-default.d.ts",
+    "files": [
+        "dist"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ULB-Darmstadt/shacl-form"
+    },
+    "author": "ULB Darmstadt",
+    "license": "MIT",
+    "homepage": "https://ulb-darmstadt.github.io/shacl-form/",
+    "keywords": [
+        "SHACL",
+        "form",
+        "generator",
+        "RDF",
+        "metadata",
+        "editor",
+        "viewer"
+    ],
+    "scripts": {
+        "build": "npm run clean && webpack --mode production && ln -s $PWD/dist/ $PWD/../src/shacl-form/dist/",
+        "clean": "rimraf dist/ && rimraf ../src/shacl-form/dist/ ",
+        "test": "echo \"no tests specified\" && exit 0",
+        "serve": "webpack serve --mode development"
+    },
+    "devDependencies": {
+        "@types/jsonld": "^1.5.13",
+        "@types/leaflet": "^1.9.8",
+        "@types/leaflet-draw": "^1.0.11",
+        "@types/leaflet.fullscreen": "^3.0.2",
+        "@types/mapbox__mapbox-gl-draw": "^1.4.6",
+        "@types/n3": "^1.16.4",
+        "@types/rdf-validate-shacl": "^0.4.6",
+        "@types/uuid": "^9.0.8",
+        "raw-loader": "^4.0.2",
+        "rimraf": "^5.0.1",
+        "ts-loader": "^9.5.1",
+        "typescript": "^5.4.3",
+        "webpack": "^5.91.0",
+        "webpack-cli": "^5.1.4",
+        "webpack-dev-server": "^5.0.4"
+    },
+    "dependencies": {
+        "@mapbox/mapbox-gl-draw": "^1.4.3",
+        "@material/web": "^1.4.0",
+        "bootstrap": "^5.3.3",
+        "jsonld": "^8.3.2",
+        "leaflet": "^1.9.4",
+        "leaflet-draw": "^1.0.4",
+        "leaflet.fullscreen": "^3.0.1",
+        "mapbox-gl": "^3.2.0",
+        "n3": "^1.17.2",
+        "rdf-validate-shacl": "^0.5.3",
+        "uuid": "^9.0.1"
+    }
+}

@@ -1,0 +1,99 @@
+PREFIX ex: <http://example.org/>
+PREFIX dash:    <http://datashapes.org/dash#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+
+# Defines the shape of a Tutorial
+ex:TutorialShape a sh:NodeShape ;
+  sh:targetClass ex:Tutorial ;
+  
+  # Self-description
+  sh:property [
+    sh:path ex:title ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
+  sh:property [
+    sh:path ex:description ;
+		dash:singleLine false;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+  ] ;
+  sh:property [
+    sh:path ex:image ;
+		sh:datatype <http://example.com/image>;
+    sh:minCount 0 ;
+  ] ;
+  sh:property [
+    sh:path ex:tag ;
+    sh:datatype xsd:string ;
+    sh:minCount 0 ;
+  ] ;
+  
+  # Arrays of Supplies and Steps
+  sh:property [
+		sh:name "Supply";
+		sh:cssClass "bigbutton";
+    sh:path ex:hasSupply ;
+    sh:class ex:Supply ;
+    sh:minCount 0 ; # FIXME to 1 
+  ] ;
+  sh:property [
+		sh:name "Step";
+		sh:cssClass "bigbutton";
+    sh:path ex:hasStep ;
+    sh:class ex:Step ;
+    sh:minCount 0 ; # FIXME to 1 
+  ] .
+
+# Defines the shape of a Supply
+ex:SupplyShape a sh:NodeShape ;
+  sh:targetClass ex:Supply ;
+  
+  sh:property [
+    sh:path ex:name ;
+    sh:datatype xsd:string ;
+    sh:minCount 0 ; # FIXME to 1 
+    sh:maxCount 1 ;
+  ] ;
+  sh:property [
+    sh:path ex:quantity ;
+    sh:datatype xsd:decimal ;
+    sh:minCount 0 ; # FIXME to 1 
+    sh:maxCount 1 ;
+  ] ;
+  sh:property [
+    sh:path ex:quantityUnit ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+  ] .
+
+# Defines the shape of a Step
+ex:StepShape a sh:NodeShape ;
+  sh:targetClass ex:Step ;
+  
+  sh:property [
+    sh:path ex:title ;
+    sh:datatype xsd:string ;
+    sh:minCount 0 ; # FIXME to 1 
+    sh:maxCount 1 ;
+  ] ;
+  sh:property [
+    sh:path ex:description ;
+		dash:singleLine false;
+		sh:singleLine <false> ;
+    sh:datatype xsd:string ;
+    sh:minCount 0 ; # FIXME to 1 
+    sh:maxCount 1 ;
+  ] ;
+  sh:property [
+    sh:path ex:image ;
+		sh:datatype <http://example.com/image>;
+    sh:minCount 0 ;
+  ] ;
+  sh:property [
+    sh:path ex:attachedFile ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 0 ;
+  ] .

@@ -1,0 +1,26 @@
+PREFIX ex: <http://example.org/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+ex:Tutorial {
+  ex:title xsd:string;
+  ex:description xsd:string?;
+  ex:uploadDate xsd:string?;
+  ex:image <http://example.com/image>*;
+  ex:tag xsd:string*;
+  ex:hasSupply @ex:Supply*;
+  ex:hasStep @ex:Step*;
+}
+
+ex:Supply {
+  ex:name xsd:string?;
+  ex:quantity xsd:decimal?;
+  ex:quantityUnit xsd:string?;
+}
+
+ex:Step {
+  ex:title xsd:string?;
+  ex:description xsd:string?;
+  ex:image <http://example.com/image>*;
+  ex:attachedFile IRI*;
+}
+
