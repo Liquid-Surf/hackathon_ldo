@@ -1,30 +1,31 @@
-import { FunctionComponent, useCallback, useMemo } from "react";
+import { FunctionComponent } from 'react';
 import { Card, CardContent, CardMedia, Typography } from '@mui/material';
 
-;
-import { ContainerUri, LeafUri } from "@ldo/solid";
-import { TutorialShapeType } from "../.ldo/tutorial.shapeTypes"
-import { useLdo, useResource, useSubject } from "@ldo/solid-react";
-import { Navigate, useNavigate } from 'react-router-dom';
+import { ContainerUri } from '@ldo/solid';
+import { TutorialShapeType } from '../.ldo/tutorial.shapeTypes';
+import { useResource, useSubject } from '@ldo/solid-react';
+import { useNavigate } from 'react-router-dom';
 
-
-const TutorialPreview: FunctionComponent<{ tutUri: ContainerUri }> = ({ tutUri }) => {
-    const navigate = useNavigate();
+const TutorialPreview: FunctionComponent<{ tutUri: ContainerUri }> = ({
+  tutUri,
+}) => {
+  const navigate = useNavigate();
 
   const tutIndexUri = `${tutUri}index.ttl`;
   const tutResource = useResource(tutIndexUri);
-  const tutorial = useSubject(TutorialShapeType, tutIndexUri)
-	if (tutResource.status.isError) 
-  	return <p>{tutResource.status.message}</p>
+  const tutorial = useSubject(TutorialShapeType, tutIndexUri);
+  if (tutResource.status.isError)
+    return <p>Error loading Tutorial: {tutResource.status.message}</p>;
 
   const handlePreviewClick = () => {
-    console.log("URI", tutUri)
-    const tutId = tutUri.split('/').slice(-2,-1)
-    navigate(`/project/${encodeURIComponent(tutUri)}`)
-  }
+    navigate(`/project/${encodeURIComponent(tutUri)}`);
+  };
 
-   return (
-    <Card sx={{ maxWidth: 345 , cursor: 'pointer'}} onClick={handlePreviewClick}>
+  return (
+    <Card
+      sx={{ maxWidth: 345, cursor: 'pointer' }}
+      onClick={handlePreviewClick}
+    >
       <CardMedia
         component="img"
         height="140"

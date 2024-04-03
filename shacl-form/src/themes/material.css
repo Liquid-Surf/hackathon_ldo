@@ -1,0 +1,25 @@
+form {
+    --md-sys-color-primary: var(--brand-color);
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+form.mode-edit { --label-width: 0em; }
+.property-instance { margin-bottom: 0px; }
+shacl-property { margin-bottom: 14px; }
+label > md-checkbox  { margin-right: 8px; }
+
+shacl-node .bigbutton {
+  font-size: 1rem;
+  margin: 4px 24px 10px 0px;
+  display: inline-block;
+  padding: 8px 23px;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #6750a4; /* Example Material Design purple color */
+  border: none;
+  border-radius: 40px;
+}
+shacl-node .bigbutton:hover {
+  color: #ffffff;
+  opacity: 0.8;
+}
