@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, ReactNode } from 'react';
+import React, { useRef, useEffect, useCallback } from 'react';
 
 import { ImageUploadPlugin } from '../shacl-form/dist/plugins/image-upload';
 import '../shacl-form/dist/form-material.js';
@@ -38,7 +38,7 @@ const ShaclForm = ({
     className: 'genric-thing-form',
   });
 
-  const handleSubmit = async (event: Event) => {
+  const handleSubmit = useCallback(async (event: Event) => {
     event.preventDefault();
     // if (event.detail?.valid )
     const triples = formRef.current?.serialize();
@@ -50,7 +50,7 @@ const ShaclForm = ({
         console.log('Error handling form result', e);
       }
     }
-  };
+  }, [formRef, callbackRdfFormResult, navigate])
 
   useEffect(() => {
     const form = formRef.current;

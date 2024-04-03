@@ -9,7 +9,6 @@ import {
   Container,
   Link as MuiLink,
 } from '@mui/material';
-import logo from '../logo.svg';
 import { Link } from 'react-router-dom';
 
 export const Header: FunctionComponent = () => {
@@ -81,43 +80,5 @@ export const Header: FunctionComponent = () => {
       </Container>
     </AppBar>
   );
-  // return (
-  //   <header>
-  //     <nav>
-  //       <ul>
-  //         <li><Link to="/">Home</Link></li>
-  //         <li><Link to="/create">Create a new Project</Link></li>
-  //         <li><Link to="/myprojects">Your project</Link></li>
-  //       </ul>
-  //     </nav>
-  //     <p>Header</p>
-  //     {session.isLoggedIn ? (
-  //       // Is the session is logged in
-  //       <p>
-  //         You are logged in with the webId {session.webId}.{" "}
-  //         Hello {loggedName}
-  //         <button onClick={logout}>Log Out</button>
-  //       </p>
-  //     ) : (
-  //       // If the session is not logged in
-  //       <p>
-  //         You are not Logged In{" "}
-  //         <button
-  //           onClick={() => {
-  //             // Get the Solid issuer the user should log into
-  //             const issuer = prompt(
-  //               "Enter your Solid Issuer",
-  //               "http://localhost:3055"
-  //             );
-  //             if (!issuer) return;
-  //             login(issuer);
-  //           }}
-  //         >
-  //           Log In
-  //         </button>
-  //       </p>
-  //     )}
-  //     <hr />
-  //   </header>
-  // );
+ 
 };

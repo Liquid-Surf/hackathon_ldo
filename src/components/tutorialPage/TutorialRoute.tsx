@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import TutorialPage from './TutorialPage';
-import { ContainerUri, LeafUri } from '@ldo/solid';
+import { ContainerUri } from '@ldo/solid';
 import { useLdo } from '@ldo/solid-react';
 const TutorialRoute = () => {
   const { tutUri } = useParams();

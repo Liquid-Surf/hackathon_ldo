@@ -1,9 +1,9 @@
 import Intro from './Intro';
 import Step from './Step';
 import Supply from './Supply';
-import { Container, Typography } from '@mui/material';
-import { ContainerUri, LeafUri } from '@ldo/solid';
-import { FunctionComponent, useCallback, useMemo } from 'react';
+import { Typography } from '@mui/material';
+import { ContainerUri } from '@ldo/solid';
+import { FunctionComponent } from 'react';
 import { TutorialShapeType } from '../../.ldo/tutorial.shapeTypes';
 import { useLdo, useResource, useSubject } from '@ldo/solid-react';
 

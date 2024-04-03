@@ -1,5 +1,5 @@
 import { FunctionComponent, useCallback, useState } from 'react';
-import { Container, Leaf, LeafUri } from '@ldo/solid';
+import { Container, LeafUri } from '@ldo/solid';
 import { useLdo, useSolidAuth } from '@ldo/solid-react';
 import { parseRdf } from '@ldo/ldo';
 
@@ -9,7 +9,7 @@ import { Quad, Dataset } from '@rdfjs/types';
 
 import { v4 } from 'uuid';
 
-import ShaclForm from './GenericThingForm';
+import ShaclForm from './ShaclForm';
 
 export const Create: FunctionComponent<{ mainContainer: Container }> = ({
   mainContainer,
@@ -23,7 +23,7 @@ export const Create: FunctionComponent<{ mainContainer: Container }> = ({
     containerName?: string
   ) => {
     if (!containerName) containerName = `${v4()}/`;
-    if (containerName.slice(-1) != '/') containerName += '/';
+    if (containerName.slice(-1) !== '/') containerName += '/';
 
     const tutContainerResult =
       await parentContainer.createChildAndOverwrite(containerName);
@@ -135,7 +135,7 @@ export const Create: FunctionComponent<{ mainContainer: Container }> = ({
         },
       });
     },
-    [images, createResourceContainer, rawTurtleToLdoDataset, mainContainer]
+    [images, createResourceContainer, dataset, rawTurtleToLdoDataset, mainContainer]
   );
 
   const getImageFile = useCallback(
