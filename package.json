@@ -31,6 +31,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:netlify": "cd shacl-form && npm i && npm run build && cd .. && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build:tutorial": "node scripts/schal2shex.js && node scripts/ttl2json.js src/.shapes/tutorial.ttl",
