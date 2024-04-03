@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# Hackathon LDO
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and participated in the [Solid hackathon, March 2024](https://solidhack.org).
+
+It introduces and uses the [tutorial shape](./src/.shapes/tutorial.shex).
 
 ## Available Scripts
 
