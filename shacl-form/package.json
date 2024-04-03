@@ -25,7 +25,7 @@
         "viewer"
     ],
     "scripts": {
-        "build": "npm run clean && webpack --mode production && ln -s $PWD/dist/ $PWD/../src/shacl-form/dist/",
+        "build": "npm run clean && webpack --mode production && ln -s $PWD/dist/ $PWD/../src/shacl-form/",
         "clean": "rimraf dist/ && rimraf ../src/shacl-form/dist/ ",
         "test": "echo \"no tests specified\" && exit 0",
         "serve": "webpack serve --mode development"
