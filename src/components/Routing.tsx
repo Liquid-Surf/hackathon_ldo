@@ -30,11 +30,37 @@ export const Routing: FunctionComponent = () => {
     }
   }, [getResource, session.webId]);
 
+  const welcome =  
+  <>
+    <h3>
+    	Welcome to my project for the <a href="https://solidhack.org">Solid Mini-hackathon 2024</a>
+    </h3>
+
+    <p>
+    	On this website you can create and view the tutorial that you have hosted on your Pod. 
+    	Therefor, you need a pod to use this app, you can create one here: <a href="https://pod.liquid.surf">pod.liquid.surf</a>
+    </p>
+    <h3>Usage</h3>
+    <p>
+    <ol>
+      <li>Login with you pod</li>
+      <li>Create a tutorial on the "Create" page</li>
+      <li>View the list of tutorial on the Home page or "My tutorals" page</li>
+      <li>Click on the tutorial preview to see the full tutorial</li>
+      <li>You can delete a tutorial clicking the "Delete" button at the end of a tutorial page</li>
+    </ol>
+    	
+    </p>
+
+    </>
+    
+
   return (
     <Router>
       <Header />
         <Routes>
       {session.isLoggedIn &&  mainContainer ? (
+        <>
           <Route
             path="/"
             element={
@@ -67,8 +93,19 @@ export const Routing: FunctionComponent = () => {
               </Container>
             }
           />
+        </>
+      ) : 
+
+        <Route
+          path="/"
+          element={
+            <Container>
+              {welcome}
+            </Container>
+          }
+        />
+       }
         </Routes>
-      ) : null}
     </Router>
   );
 };
