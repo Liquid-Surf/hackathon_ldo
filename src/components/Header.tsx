@@ -9,10 +9,11 @@ import {
   Container,
   Link as MuiLink,
 } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 export const Header: FunctionComponent = () => {
   const { session, login, logout } = useSolidAuth();
+  const navigate = useNavigate();
   const webIdResource = useResource(session.webId);
   const profile = useSubject(SolidProfileShapeShapeType, session.webId);
   const loggedName = webIdResource?.isReading()
@@ -20,16 +21,22 @@ export const Header: FunctionComponent = () => {
     : profile?.fn
       ? profile.fn
       : '';
+  const logoutAndRedirect = async () => {
+    await logout()
+    navigate('/')
+  }
   return (
     <AppBar position="static">
       <Container>
-        <Toolbar disableGutters>
+        <Toolbar disableGutters sx={{ marginBottom: 3}}>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             <MuiLink component={Link} to="/" color="inherit" underline="none">
               Home
             </MuiLink>
           </Typography>
 
+          {session.isLoggedIn ? (
+          <>
           <Typography>
             <MuiLink
               component={Link}
@@ -52,13 +59,13 @@ export const Header: FunctionComponent = () => {
               Create Tutorial
             </MuiLink>
           </Typography>
-          {session.isLoggedIn ? (
             <Typography>
               <a href={session.webId}>Hello {loggedName}</a>
-              <Button color="inherit" onClick={logout}>
+              <Button color="inherit" onClick={logoutAndRedirect}>
                 Log Out
               </Button>
             </Typography>
+            </>
           ) : (
             <Typography>
               <Button
