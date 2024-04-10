@@ -73,7 +73,7 @@ export const Header: FunctionComponent = () => {
                 onClick={() => {
                   const issuer = prompt(
                     'Enter your Solid Issuer',
-                    'http://localhost:3055'
+                    'https://pod.liquid.surf'
                   );
                   if (!issuer) return;
                   login(issuer);
