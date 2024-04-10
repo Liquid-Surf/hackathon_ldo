@@ -33,8 +33,8 @@ export const Routing: FunctionComponent = () => {
   return (
     <Router>
       <Header />
-      {mainContainer ? (
         <Routes>
+      {session.isLoggedIn &&  mainContainer ? (
           <Route
             path="/"
             element={
