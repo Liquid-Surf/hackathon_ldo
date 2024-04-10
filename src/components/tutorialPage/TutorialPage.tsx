@@ -1,7 +1,7 @@
 import Intro from './Intro';
 import Step from './Step';
 import Supply from './Supply';
-import { Typography } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 import { ContainerUri } from '@ldo/solid';
 import { FunctionComponent } from 'react';
 import { TutorialShapeType } from '../../.ldo/tutorial.shapeTypes';
@@ -54,7 +54,7 @@ const TutorialPage: FunctionComponent<{
         />
       ))}
       {deleteTut ? (
-        <button onClick={async () => await deleteTut()}>Delete</button>
+        <Button color="error" variant="contained" onClick={async () => await deleteTut()}>Delete</Button>
       ) : null}
     </>
   );
